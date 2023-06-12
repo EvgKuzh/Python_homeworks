@@ -26,12 +26,15 @@ leftmost_value = int(
 rightmost_value = int(
     input("Введите максимальное значение искомого диапазона: "))
 
-result = []
+result = {}
 for i in list1:
     if i > leftmost_value and i < rightmost_value:
-        result.append(list1.index(i))
+        result[list1.index(i)] = i
 
-if len(result)<1:
-    print(f"Нет значений принадлежащих диапазону ({leftmost_value};{rightmost_value}).")
+if len(result) < 1:
+    print(
+        f"Нет значений принадлежащих диапазону ({leftmost_value};{rightmost_value}).")
 else:
-    print(result)
+    print(f"Диапазону (({leftmost_value};{rightmost_value}) принадлежат:)")
+    for k, v in result.items():
+        print(f"индекс = {k}, значение = {v}")
